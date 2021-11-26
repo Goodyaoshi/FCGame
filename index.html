@@ -1,4 +1,4 @@
-<html>  
+<html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
@@ -12,114 +12,97 @@
     <meta name="x5-fullscreen" content="true">
     <meta name="x5-page-mode" content="app">
     <title>FCGame</title>
-    <meta name="keywords" content="FCGame在线小霸王游戏机，1秒找回童年" />
-    <meta name="description" content="FCGame在线小霸王游戏机，1秒找回童年" />
+    <meta name="keywords" content="fc,在线fc游戏,fc在线模拟器,nes在线模拟器,魂斗罗,超级玛丽,忍者龙剑传," />
+    <meta name="description" content="任天堂FC/NES原版ROM在线玩，可以近乎完美的还原fc卡带游戏的视频和声音。" />
     <link href="css/index.css" rel="stylesheet" type="text/css" />
     <link rel="shortcut icon" href="./image/favicon.ico">
-    <style>
-        .function button, .action button{
-            color:#000;
-        }
-        .function button{
-            height:32px;
-            width:auto;
-        }
-    </style>
 </head>
 <body>
-    <div class="main"><div class="panel" id="computer" style="display:none;">
-			<div class="controller-area">
-                <div class="joy">I</div>
-            </div>
-            <div class="function-area">
-                <div class="screen">
-                    <div id="computerEmulator" align="center" style="width:100%;height:100%"></div>
+<div class="main">
+    <div class="panel">
+        <div class="controller-area">
+            <div class="controller" id="controller" style="display: none">
+                <div id="controls-direction">
+                    <div id="controls-rocker"></div>
+                    <button role="BUTTON_UP" class="up joydirection" id="joystick_btn_up">up</button>
+                    <button role="BUTTON_RIGHT" class="right joydirection" id="joystick_btn_right">right</button>
+                    <button role="BUTTON_DOWN" class="down joydirection" id="joystick_btn_down">down</button>
+                    <button role="BUTTON_LEFT" class="left joydirection" id="joystick_btn_left">left</button>
                 </div>
             </div>
-            <div style="margin-top: 55px">
-				<table style="width: 100%;background-color: #fff;color: #666;margin: 10px 0;border-collapse: collapse;border-spacing: 0;background-color: #FAFAFA;border: 1px solid #eee;">
-					<thead style="background-color: #FAFAFA;">
-						<tr style="background-color: #FAFAFA;">
-							<th style="position: relative;padding: 4px 16px;min-height: 18px;line-height: 18px;font-size: 12px;border: 1px solid #eee;text-align: left;font-weight: 400;">按键</th>
-							<th style="position: relative;padding: 4px 16px;min-height: 18px;line-height: 18px;font-size: 12px;border: 1px solid #eee;text-align: left;font-weight: 400;">电脑键</th>
-						</tr>
-					</thead>
-					<tbody style="background-color: #FAFAFA;">
-						<tr style="background-color: #FAFAFA;">
-							<td style="position: relative;padding: 4px 16px;min-height: 18px;line-height: 18px;font-size: 12px;border: 1px solid #eee;">上</td>
-							<td style="position: relative;padding: 4px 16px;min-height: 18px;line-height: 18px;font-size: 12px;border: 1px solid #eee;">W</td>
-						</tr>
-						<tr style="background-color: #FAFAFA;">
-							<td style="position: relative;padding: 4px 16px;min-height: 18px;line-height: 18px;font-size: 12px;border: 1px solid #eee;">下</td>
-							<td style="position: relative;padding: 4px 16px;min-height: 18px;line-height: 18px;font-size: 12px;border: 1px solid #eee;">S</td>
-						</tr>
-						<tr style="background-color: #FAFAFA;">
-							<td style="position: relative;padding: 4px 16px;min-height: 18px;line-height: 18px;font-size: 12px;border: 1px solid #eee;">左</td>
-							<td style="position: relative;padding: 4px 16px;min-height: 18px;line-height: 18px;font-size: 12px;border: 1px solid #eee;">A</td>
-						</tr>
-						<tr style="background-color: #FAFAFA;">
-							<td style="position: relative;padding: 4px 16px;min-height: 18px;line-height: 18px;font-size: 12px;border: 1px solid #eee;">右</td>
-							<td style="position: relative;padding: 4px 16px;min-height: 18px;line-height: 18px;font-size: 12px;border: 1px solid #eee;">D</td>
-						</tr>
-						<tr style="background-color: #FAFAFA;">
-							<td style="position: relative;padding: 4px 16px;min-height: 18px;line-height: 18px;font-size: 12px;border: 1px solid #eee;">A</td>
-							<td style="position: relative;padding: 4px 16px;min-height: 18px;line-height: 18px;font-size: 12px;border: 1px solid #eee;">J</td>
-						</tr>
-						<tr style="background-color: #FAFAFA;">
-							<td style="position: relative;padding: 4px 16px;min-height: 18px;line-height: 18px;font-size: 12px;border: 1px solid #eee;">B</td>
-							<td style="position: relative;padding: 4px 16px;min-height: 18px;line-height: 18px;font-size: 12px;border: 1px solid #eee;">K</td>
-						</tr>
+            <div class="joy">I</div>
+        </div>
+        <div class="function-area">
+            <div class="screen">
+                <div id="emulator" align="center" style="width:100%;height:100%"></div>
+            </div>
+            <div class="function" id="function" style="display: none">
+                <button class="controls-center-select joybtn" id="joystick_btn_select" role="BUTTON_SELECT">Select
+                </button>
+                <button class="controls-center-start joybtn" id="joystick_btn_start" role="BUTTON_START">Pause</button>
+            </div>
+        </div>
+        <div class="action-area" id="action-area" style="display: none">
+            <div class="action">
+                <div id="controls-fire">
+                    <button class="a joybtn" role="BUTTON_A" id="joystick_btn_A">A</button>
+                    <button class="b joybtn" role="BUTTON_B" id="joystick_btn_B">B</button>
+                </div>
+            </div>
+        </div>
+        <div class="keyboard" id="keyboard" style="display:none;">
+            <table class="layui-table" lay-even="" lay-skin="row">
+                <thead>
+                <tr>
+                    <th>按键</th>
+                    <th>电脑键</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>上</td>
+                    <td>W</td>
+                </tr>
+                <tr>
+                    <td>下</td>
+                    <td>S</td>
+                </tr>
+                <tr>
+                    <td>左</td>
+                    <td>A</td>
+                </tr>
+                <tr>
+                    <td>右</td>
+                    <td>D</td>
+                </tr>
+                <tr>
+                    <td>A</td>
+                    <td>J</td>
+                </tr>
+                <tr>
+                    <td>B</td>
+                    <td>K</td>
+                </tr>
 
-						<tr style="background-color: #FAFAFA;">
-							<td style="position: relative;padding: 4px 16px;min-height: 18px;line-height: 18px;font-size: 12px;border: 1px solid #eee;">AB</td>
-							<td style="position: relative;padding: 4px 16px;min-height: 18px;line-height: 18px;font-size: 12px;border: 1px solid #eee;">J+K</td>
-						</tr>
-						<tr style="background-color: #FAFAFA;">
-							<td style="position: relative;padding: 4px 16px;min-height: 18px;line-height: 18px;font-size: 12px;border: 1px solid #eee;">Start</td>
-							<td style="position: relative;padding: 4px 16px;min-height: 18px;line-height: 18px;font-size: 12px;border: 1px solid #eee;">Enter</td>
-						</tr>
-						<tr style="background-color: #FAFAFA;">
-							<td style="position: relative;padding: 4px 16px;min-height: 18px;line-height: 18px;font-size: 12px;border: 1px solid #eee;">Select</td>
-							<td style="position: relative;padding: 4px 16px;min-height: 18px;line-height: 18px;font-size: 12px;border: 1px solid #eee;">Ctr</td>
-						</tr>
-					</tbody>
-				</table>
-			</div>
-            <div class="sign">FAMILY <br> COMPUTER</div>
+                <tr>
+                    <td>AB</td>
+                    <td>J+K</td>
+                </tr>
+                <tr>
+                    <td>Start</td>
+                    <td>Enter</td>
+                </tr>
+                <tr>
+                    <td>Select</td>
+                    <td>Ctr</td>
+                </tr>
+                </tbody>
+            </table>
         </div>
-        <div class="panel" id="default" style="display:;">
-            <div class="controller-area">
-                <div class="controller">
-                    <div id="controls-direction">
-                        <div id="controls-rocker"></div>
-                        <button role="BUTTON_UP" class="up joydirection" id="joystick_btn_up">up</button>
-                        <button role="BUTTON_RIGHT" class="right joydirection" id="joystick_btn_right">right</button>
-                        <button role="BUTTON_DOWN" class="down joydirection" id="joystick_btn_down">down</button>
-                        <button role="BUTTON_LEFT" class="left joydirection" id="joystick_btn_left">left</button>
-                    </div>
-                </div>
-                <div class="joy">I</div>
-            </div>
-            <div class="function-area">
-                <div class="screen">
-                    <div id="emulator" align="center" style="width:100%;height:100%"></div>
-                </div>
-                <div class="function">
-                    <button class="controls-center-select joybtn" id="joystick_btn_select" role="BUTTON_SELECT">Select</button>
-                    <button class="controls-center-start joybtn" id="joystick_btn_start" role="BUTTON_START">Pause</button>
-                </div>
-            </div>
-            <div class="action-area">
-                <div class="action">
-                    <div id="controls-fire">
-                        <button class="a joybtn" role="BUTTON_A" id="joystick_btn_A">A</button>
-                        <button class="b joybtn" role="BUTTON_B" id="joystick_btn_B">B</button>
-                    </div>
-                </div>
-            </div>
-            <div class="sign">FAMILY <br> COMPUTER</div>
-        </div>
+        <div class="sign">FAMILY
+            <br> COMPUTER</div>
     </div>
+</div>
 </body>
 <script src="./js/jquery-1.4.2.min.js" type="text/javascript" charset="utf-8"></script>
 <script src="./js/dynamicaudio-min.js" type="text/javascript" charset="utf-8"></script>
@@ -135,39 +118,6 @@
 <script src="./js/debug.mini.js" type="text/javascript" charset="utf-8"></script>
 <script src="./js/nipplejs.min.js" type="text/javascript" charset="utf-8"></script>
 <script src="./js/joystick.js" type="text/javascript" charset="utf-8"></script>
-<script src="./js/roms.js" type="text/javascript" charset="utf-8"></script>
-<script>
-    function touchDwon(evt) {
-    nes.keyboard.keyDown({
-        keyCode: evt.keyCode
-    });
-};
-
-function touchUp(evt) {
-    nes.keyboard.keyUp({
-        keyCode: evt.keyCode
-    });
-};
-
-function select(val) {
-    if (val.substring(0, 1) == "#") {
-        return document.querySelector(val);
-    } else {
-        return document.getElementById(val);
-    }
-}
-
-var joystick = new Joystick({
-    el: select("controls-rocker"),
-    mode: 'static',
-    color: "#808080",
-    size: 150,
-    isFourBtn: false,
-    keyCodes: [87, 83, 65, 68],
-    btn_down_fn: touchDwon,
-    btn_up_fn: touchUp,
-    relative: true,
-});
-joystick.init();
-</script>
+<script src="./js/index.js" type="text/javascript" charset="utf-8"></script>
+<script src="./js/init.js" type="text/javascript" charset="utf-8"></script>
 </html>

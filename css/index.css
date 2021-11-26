@@ -53,6 +53,7 @@ body {
     z-index: 10;
     display: flex;
     flex-direction: row;
+    min-width: 50px;
 }
 
 .action-area {
@@ -269,18 +270,108 @@ button.left.joydirection {
     max-height: 100%;
 }
 
-.nes-roms>select {
-    width: 200px;
+.nes-screen{
+    height:100%;
+    width: auto;
 }
 
-.nes-controls {
+.nes-panel{
+    position: absolute;
+    left: 0;
+    top: 60px;
+    max-height: 120px;
+}
+
+.nes-roms>select{
+    width: 50px;
+}
+
+.nes-controls{
     margin-top: 2px;
+    width: 50px;
+}
+
+.nes-controls input{
+    margin-top:10px;
+    width: 50px;
+}
+
+.nes-zoom{
+    display:none;
+}
+
+.keyboard{
+	margin-top: 55px;
+}
+
+.layui-table {
+	width: 100%;
+	background-color: #fff;
+	color: #666;
+	margin: 10px 0;
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+.layui-table tbody tr:hover, .layui-table thead tr, .layui-table-total tr, .layui-table[lay-even] tr:nth-child(even) {
+	background-color: #FAFAFA;
+}
+
+.layui-table td, .layui-table th {
+	position: relative;
+	padding: 4px 16px;
+	min-height: 18px;
+	line-height: 18px;
+	font-size: 12px;
+}
+
+.layui-table td, .layui-table th, .layui-table[lay-skin=line], .layui-table[lay-skin=row] {
+	border: 1px solid #eee;
+}
+
+.layui-table th {
+	text-align: left;
+	font-weight: 400;
 }
 
 @media screen and (orientation: portrait) {
     .main {
         max-height: 100%;
     }
+
+    .nes-panel{
+        position: absolute;
+        left: 0;
+        top: 0;
+        max-height: 60px;
+    }
+
+    .nes-roms{
+        margin-left: 60px;
+    }
+
+    .nes-roms>select{
+        width: 100px;
+        height: 50px;
+        background: #857b7a;
+        border-radius: 5px;
+        text-align: center;
+        line-height: 50px;
+        color: #f8f1d7;
+        font-weight: bold;
+        font-size: 16px;
+    }
+
+    .nes-controls{
+        margin-top:5px;
+        width: 300px;
+    }
+
+    .nes-controls input{
+        margin-right: 10px;
+        width: 75px;
+    }
+
     .function-area {
         position: absolute;
         left: 0;
@@ -289,6 +380,7 @@ button.left.joydirection {
         bottom: 100px;
         padding-bottom: 80px;
     }
+
     .function {
         position: absolute;
         bottom: 0;
@@ -298,6 +390,7 @@ button.left.joydirection {
         border-radius: 50px 0 0 50px;
         box-shadow: 0px 5px 0 rgba(255, 255, 255, .8);
     }
+
     .function::before {
         content: '';
         position: absolute;
@@ -307,6 +400,7 @@ button.left.joydirection {
         top: -15px;
         background: radial-gradient( circle at left top, transparent 14px, #da4a4a 15px);
     }
+
     .function::after {
         content: '';
         position: absolute;
@@ -316,21 +410,27 @@ button.left.joydirection {
         right: 0;
         background: radial-gradient( circle at left bottom, transparent 14px, #da4a4a 15px);
     }
+
     .screen {
         margin-bottom: 0;
         max-height: 300px;
     }
+
     .function button {
         width: 56px;
         margin: 10px;
     }
+
     .action-area {
         flex: 1;
         justify-content: flex-end;
     }
+
     .action button:first-child {
         margin-right: 20px
     }
 }
 
-@media screen and (orientation: landscape) {}
+@media screen and (orientation: landscape) {
+
+}

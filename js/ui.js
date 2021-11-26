@@ -36,8 +36,9 @@ if (typeof jQuery !== 'undefined') {
                  * Create UI
                  */
                 self.status = $('<p class="nes-status">Booting up...</p>').appendTo(self.root);
-                self.root = $('<div></div>');
-                self.screen = $('<canvas class="nes-screen" width="256" height="240"></canvas>').appendTo(self.root);
+                self.root = $('<div class="nes-panel"></div>');
+                // self.screen = $('<canvas class="nes-screen" width="256" height="240"></canvas>').appendTo(self.root);
+                self.screen = $('<canvas class="nes-screen" width="256" height="240"></canvas>').appendTo(parent);
 
                 if (!self.screen[0].getContext) {
                     parent.html("Your browser doesn't support the <code>&lt;canvas&gt;</code> tag. Try Google Chrome, Safari, Opera or Firefox!");
@@ -52,7 +53,9 @@ if (typeof jQuery !== 'undefined') {
                     sound: $('<input type="button" value="开启声音" class="nes-enablesound">').appendTo(self.controls),
                     zoom: $('<input type="button" value="放大" class="nes-zoom">').appendTo(self.controls)
                 };
-                self.root.appendTo(parent);
+                // self.root.appendTo(parent);
+                var controllerArea = document.getElementsByClassName("controller-area")[0];
+                self.root.appendTo(controllerArea);
 
                 /*
                  * ROM loading
